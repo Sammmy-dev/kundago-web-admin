@@ -6,7 +6,7 @@ import { Loader2, ChevronDown, Search } from 'lucide-react'
 type Order = {
   _id: string
   userId: { _id: string; fullName: string; email: string; phone?: string } | string
-  items: { productId: string; quantity: number; priceAtTime: number }[]
+  items: { productId: { _id: string; name: string } | string; quantity: number; priceAtTime: number }[]
   totalAmount: number
   paymentMethod: string
   paymentStatus: string
