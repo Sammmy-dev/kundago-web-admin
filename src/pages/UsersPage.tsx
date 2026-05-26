@@ -29,7 +29,7 @@ export default function UsersPage() {
   const filtered = (users ?? []).filter((u: User) => {
     if (!search) return true
     const q = search.toLowerCase()
-    return u.fullName.toLowerCase().includes(q) || u.email.toLowerCase().includes(q) || u.phone?.toLowerCase().includes(q)
+    return (u.fullName ?? '').toLowerCase().includes(q) || (u.email ?? '').toLowerCase().includes(q) || u.phone?.toLowerCase().includes(q)
   })
 
   return (
