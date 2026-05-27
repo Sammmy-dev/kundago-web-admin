@@ -25,7 +25,16 @@ export default function LoginPage() {
       await login(email, password)
       navigate('/')
     } catch (err: any) {
-      setError(err.response?.data?.message || err.message || 'Login failed. Please try again.')
+      const status = err?.response?.status
+      if (status === 401 || status === 404) {
+        setError('Invalid email or password. Please try again.')
+      } else if (err?.response?.data?.message) {
+        setError(err.response.data.message)
+      } else if (err?.message) {
+        setError(err.message)
+      } else {
+        setError('Login failed. Please try again.')
+      }
     } finally {
       setLoading(false)
     }
