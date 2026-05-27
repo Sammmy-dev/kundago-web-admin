@@ -4,7 +4,7 @@ import { useAuthStore } from '../lib/auth'
 import { useThemeStore } from '../lib/theme'
 import {
   LayoutDashboard, ShoppingBag, Package, Truck, Users,
-  Settings, LogOut, Menu, Moon, Sun,
+  LogOut, Menu, Moon, Sun,
 } from 'lucide-react'
 
 const navItems = [
@@ -64,9 +64,9 @@ export default function AdminLayout() {
           <button className={`sidebar-link`} onClick={toggleTheme}>
             {isDark ? <Sun size={18} /> : <Moon size={18} />} <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
           </button>
-          <button className={`sidebar-link ${activePath === 'settings' ? 'active' : ''}`} onClick={() => {}}>
+          {/* <button className={`sidebar-link ${activePath === 'settings' ? 'active' : ''}`} onClick={() => {}}>
             <Settings size={18} /> <span>Settings</span>
-          </button>
+          </button> */}
         </nav>
         <div className="sidebar-footer">
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 16px' }}>
